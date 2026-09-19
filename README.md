@@ -10,4 +10,4 @@ YZ50'nin müfredatını (Karpathy'nin *Neural Networks: Zero to Hero* yaklaşım
 ## İlerleme
 | Hafta | Konu | Durum | Not |
 | --- | --- | --- | --- |
-| 1 | Temel kavramlar | 🔲 |  |
+| 1 | Temel kavramlar | ✅ | Forward pass + sigmoid, bias/ağırlık deneyleri tamamlandı |
