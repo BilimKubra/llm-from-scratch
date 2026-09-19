@@ -1,26 +1,26 @@
 """
 Hafta 1 - Forward Pass'i elle hesaplama
-Hicbir kutuphane kullanmadan (NumPy bile yok) tek bir "neuron"un
-girisleri nasil ciktiya cevirdigini gormek icin.
+Farkli agirlik/bias degerleriyle ciktinin nasil degistigini gozlemliyoruz.
 """
+import math
 
 def neuron_forward(inputs, weights, bias):
-    # Her giris * agirlik carpimlarinin toplami + bias
     weighted_sum = sum(x * w for x, w in zip(inputs, weights))
-    z = weighted_sum + bias
-    return z
+    return weighted_sum + bias
 
 def sigmoid(z):
-    import math
     return 1 / (1 + math.exp(-z))
 
 if __name__ == "__main__":
     inputs = [1.0, 2.0, 3.0]
-    weights = [0.2, -0.5, 0.1]
-    bias = 0.7
 
-    z = neuron_forward(inputs, weights, bias)
-    output = sigmoid(z)
+    denemeler = [
+        {"weights": [0.2, -0.5, 0.1], "bias": 0.7},
+        {"weights": [0.2, -0.5, 0.1], "bias": -2.0},   # bias dusurulunce ne oluyor?
+        {"weights": [2.0, -5.0, 1.0], "bias": 0.7},    # agirliklar buyutulunce ne oluyor?
+    ]
 
-    print(f"Agirlikli toplam (z): {z}")
-    print(f"Aktivasyon sonrasi cikti: {output}")
+    for i, d in enumerate(denemeler, 1):
+        z = neuron_forward(inputs, d["weights"], d["bias"])
+        output = sigmoid(z)
+        print(f"Deneme {i}: agirliklar={d['weights']}, bias={d['bias']} -> z={z:.3f}, sigmoid={output:.3f}")

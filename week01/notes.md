@@ -21,3 +21,10 @@ Karpathy - Neural Networks: Zero to Hero (ilk video)
 ## Deney Sonucu
 - Girdi: [1.0, 2.0, 3.0], Agirlik: [0.2, -0.5, 0.1], Bias: 0.7
 - z ve sigmoid ciktisini terminalde gordum, degerleri buraya not al
+
+## Deney Gozlemleri
+- Bias 0.7 -> -2.0 oldugunda z kuculdu (0.2 -> -2.5), sigmoid de 0.55 -> 0.076'ya dustu.
+  Bias, ciktiyi dogrudan yukari/asagi kaydiriyor.
+- Agirliklar buyutulunce (2.0, -5.0, 1.0) z cok negatif oldu (-4.3), sigmoid neredeyse 0'a
+  yapisti (0.013). Sigmoid, z cok buyuk/kucuk oldugunda "doygunlasiyor" (saturation) -
+  ileride vanishing gradient konusuyla baglantili olacak.
